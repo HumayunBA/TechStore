@@ -19,36 +19,4 @@
         "description": "Super nice and beautiful smartphone from LG.",
         "image": "LGV30.png",
         "price": 7495
-    },{
-        "title": "iPhone XPlus",
-        "description": "The latest from the apple Iphone series. Plus its had better screen.",
-        "image": "iPhoneXPlus.png",
-        "price": 11495
-    },{
-        "title": "Galaxy S10",
-        "description": "Galaxy S10 brings you the latest technology in smartphones.",
-        "image": "SamsungS10.png",
-        "price": 4995
-    },{
-        "title": "Iphone 11",
-        "description": "Iphone 11 has changed the way camera and pictures work.",
-        "image": "iphone11.png",
-        "price": 7990
-    },{
-        "title": "Huawei P20",
-        "description": "Big screen and great battery to enjoy better gaming.",
-        "image": "huaweiP20.png",
-        "price": 7495
-    },{
-        "title": "Samsung S9",
-        "description": "S9 has the best sound and music playing quality.",
-        "image": "samsungS9.png",
-        "price": 7990
-    },{
-        "title": "Apple IphoneXs",
-        "description": "It is latest in the series where smartphones get better.",
-        "image": "iphoneXs.png",
-        "price": 7495
     }
-]
-

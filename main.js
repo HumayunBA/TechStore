@@ -1,6 +1,6 @@
 var listOfProducts;
 
-/** Get products from the json file and store it in a gobal variable */
+
 function loadProducts() {
     fetch("./products.json")
     .then(function(response) {
@@ -14,18 +14,55 @@ function loadProducts() {
 
 
 function initSite() {
-    loadProducts();
-    // This would also be a good place to initialize other parts of the UI
-}
-
-/** Uses the loaded products data to create a visible product list on the website */
-function addProductsToWebpage() {
-    // Check your console to see that the products are stored in the listOfProducts varible.
-    console.log(listOfProducts);
-
-    // Add your code here, remember to brake your code in to smaller function blocks
-    // to reduce complexity and increase readability. Each function should have
-    // an explainetory comment like the one for this function, see row 22.
+    loadProducts(); 
     
-    // TODO: Remove the console.log and these comments when you've read them.
 }
+
+
+function addProductsToWebpage() {
+
+    var body = document.getElementsByTagName("body")[0]
+    var conatiner = document.createElement("div")
+    conatiner.classList = "container"
+   
+    for(var i = 0; i < listOfProducts.length; i++) {
+       var selectedProduct = listOfProducts[i]
+       var productCard = createProductCard(selectedProduct)
+       conatiner.appendChild(productCard)
+     
+     }
+     body.appendChild(conatiner)
+    }
+
+function createProductCard(selectedProduct) {
+        var productCard = document.createElement("div")
+        var infoItem = document.createElement("div")
+    
+        var titleItem = document.createElement("p")
+        var descriptionItem = document.createElement("p")
+        var imageItem = document.createElement("img")
+        imageItem.src = "assets/" + selectedProduct.image
+        imageItem.setAttribute("width", "304")
+        imageItem.setAttribute("height", "450")
+        var priceItem = document.createElement("p")
+    
+        titleItem.innerText = selectedProduct.title
+        descriptionItem.innerText = selectedProduct.description
+        imageItem.innerText = selectedProduct.image
+        priceItem.innerText = selectedProduct.price
+    
+        infoItem.appendChild(titleItem)
+        infoItem.appendChild(descriptionItem)
+        infoItem.appendChild(imageItem)
+        infoItem.appendChild(priceItem)
+    
+        productCard.appendChild(infoItem)
+    
+        return productCard
+    }
+
+
+    
+
+
+   
