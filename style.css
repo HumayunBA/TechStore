@@ -1,16 +1,20 @@
+
 * {
     box-sizing: border-box;
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
 }
+.pI{
+    height: 15rem;
+    object-fit: cover;
+}
 
-
-
-header {
+.headerBox {
     width: 100%;
     height: 60px;
     background-color: black;
     display: flex;
+    flex-direction: row;
     color: white;
     justify-content: space-between;
     align-items: center;
@@ -40,30 +44,35 @@ h1{
 }
 
 main{
-    width: 100%;
+    /* width: 100%; */
     text-align: center;
     margin-top: 50px;
-    
 }
-
 
 #mainBody{
     
    display: inline-block;
 }
+
+a{
+    color: white;
     
-    .container {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            background-color:;
-            min-height: ;
-        }
-    
-    .container div {
-        margin-top: 20px;
-    }
-    
+    text-decoration: none;
+}
+
+#bBtn{
+margin-bottom: 80;
+}
+
+.card{
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    width: 250px;
+    height: 400px;
+    margin: 10px;
+    border: 3px solid lightskyblue;
+    border-radius: 10%
+  }
+
+  
