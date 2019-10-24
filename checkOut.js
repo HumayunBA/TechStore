@@ -25,7 +25,7 @@ function setHeader(){
     var productCounter=document.createElement("div")
     productCounter.id="productCounter"
 
-    var storedNames = JSON.parse(localStorage.getItem("shoppingList"))
+    var storedNames = JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")):[]
     productCounter.innerText=storedNames.length
 
    var shoppingCart=document.createElement("div")
@@ -98,7 +98,7 @@ function bodyCreate(){
     container.id="phones"
     container.className="row d-flex justify-content-center"
     var totalSum=0;
-    var listOfProducts=JSON.parse(localStorage.getItem("shoppingList"))
+    var listOfProducts=JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")):[]
             for(var i = 0; i < listOfProducts.length; i++) {
                 var selectedPhone= listOfProducts[i]
                 var phoneCard = createPhoneCard(selectedPhone)
