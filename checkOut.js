@@ -3,7 +3,6 @@ function initSite() {
       setHeader();
       bodyCreate()
         
-    // This would also be a good place to initialize other parts of the UI
 }
 function setHeader(){
     var header = document.getElementsByTagName("header")

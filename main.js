@@ -90,10 +90,10 @@ function setHeader(){
     
  
     var header1=document.createElement("h1")
-   var mainPageLink=document.createElement("a")
+    var mainPageLink=document.createElement("a")
     mainPageLink.href="/index.html"
     mainPageLink.innerText="TechStore"
-   header1.appendChild(mainPageLink)
+    header1.appendChild(mainPageLink)
 
     var headerDiv=document.createElement("div")
     headerDiv.className="headerDiv"
