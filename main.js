@@ -8,7 +8,7 @@ function loadProducts() {
         return response.json();
     })
     .then(function(products) {
-        listOfProducts = products;
+        listOfProducts = products; 
         addProductsToWebpage();
     });
 }

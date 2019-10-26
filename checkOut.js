@@ -12,11 +12,11 @@ function setHeader(){
     
     //var infoList = document.createElement("ul")
     var header1=document.createElement("h1")
-   var mainPageLink=document.createElement("a")
+    var mainPageLink=document.createElement("a")
     //mainPageLink.setAttribute(href, "/index.html")
     mainPageLink.href="/index.html"
     mainPageLink.innerText="TechStore"
-   header1.appendChild(mainPageLink)
+    header1.appendChild(mainPageLink)
 
     var headerDiv=document.createElement("div")
     headerDiv.className="headerDiv"
@@ -27,7 +27,7 @@ function setHeader(){
     var storedNames = JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")):[]
     productCounter.innerText=storedNames.length
 
-   var shoppingCart=document.createElement("div")
+    var shoppingCart=document.createElement("div")
     shoppingCart.className='fas fa-shopping-cart fa'
     shoppingCart.id=shoppingCart;
     shoppingCart.addEventListener('click', function(e) {
@@ -112,8 +112,8 @@ function bodyCreate(){
           totalPrice.innerText="Total price: "+totalSum
          
           var completePurchase=document.createElement("button");
-          completePurchase.className='btn btn-primary fas fa-check fa';
-            completePurchase.innerText=" Complete the purchase"
+          completePurchase.className="fas fa-check btn btn-primary ";
+            completePurchase.innerText="Complete the purchase"
             main.appendChild(header)
             main.appendChild(container)
             main.appendChild(totalPrice)
