@@ -113,7 +113,7 @@ function bodyCreate(){
           totalPrice.innerText="Total price: "+totalSum
          
           var completePurchase=document.createElement("button");
-          completePurchase.className='btn btn-primary fas fa-check';
+          completePurchase.className='btn btn-primary fas fa-check fa';
             completePurchase.innerText=" Complete the purchase"
             main.appendChild(header)
             main.appendChild(container)
