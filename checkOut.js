@@ -1,7 +1,7 @@
 function initSite() {
    
       setHeader();
-      bodyCreate()
+      bodyCreate();
         
 }
 function setHeader(){
@@ -55,27 +55,34 @@ function setHeader(){
     phoneCard2.className="card"
     var infoList = document.createElement("ul")
 
-    var phoneName = document.createElement("h2")
+    
     var phoneImage = document.createElement("img")
+    var phoneName = document.createElement("h2")
     var phonePrice = document.createElement("p")
     var deleteButton=document.createElement("button");
    // buyButton.id="bBtn"
+    var spanForButtonText = document.createElement("span");
+    var spanForButtonIcon = document.createElement("span");
+    deleteButton.appendChild(spanForButtonIcon);
+    deleteButton.appendChild(spanForButtonText);
    
     phoneName.innerText = selectedPhone.title
     phoneImage.setAttribute('src',"./assets/" + selectedPhone.image)
-    phonePrice.innerText = selectedPhone.price
+    phonePrice.innerText = selectedPhone.price+" "+"kr";
     
-    deleteButton.className='btn btn-danger far fa-trash-alt'
-    deleteButton.innerText="  Delete"
+    
+    spanForButtonIcon.innerHTML = '<i class="far fa-trash-alt"></i>';
+    spanForButtonText.innerText = "Ta bort";
+    deleteButton.classList.add("delete-button", "btn-danger");
     deleteButton.data=selectedPhone.num
      deleteButton.addEventListener("click", function() {
         deleteElemet(this.data)
    })
 
-
     phoneImage.className="pI"
-    infoList.appendChild(phoneName)
+   
     infoList.appendChild(phoneImage)
+    infoList.appendChild(phoneName)
     infoList.appendChild(phonePrice)
     infoList.appendChild(deleteButton)
     phoneCard2.appendChild(infoList)
@@ -88,7 +95,7 @@ function bodyCreate(){
     var main = document.getElementsByTagName("main")[0]
     var header=document.createElement("h2")
     header.className="fas fa-shopping-cart"
-    header.innerText=" CheckOut"
+    header.innerText="Kundvagn"
     var container = document.createElement("div")
     container.id="phones"
     container.className="row d-flex justify-content-center"
@@ -103,19 +110,29 @@ function bodyCreate(){
              totalSum+=Number(selectedPhone.price)
                
             }
+
             console.log(totalSum)
-          var totalPrice=document.createElement("div") 
-          totalPrice.innerText="Total price: "+totalSum
-         
-          var completePurchase=document.createElement("button")
-          completePurchase.className="fas fa-check btn btn-primary"
-            completePurchase.innerText="Complete the purchase"
-            main.appendChild(header)
-            main.appendChild(container)
-            main.appendChild(totalPrice)
-            main.appendChild(completePurchase)
-           console.log(main)
+    var totalPrice=document.createElement("div") 
+    totalPrice.innerText="Totalt pris: "+totalSum+" "+"kr";
+    
+    var completePurchase=document.createElement("button")
+    var completePurchaseSpanText=document.createElement("span")
+    var completePurchaseSpanIcon=document.createElement("span")
+
+    
+    completePurchase.appendChild(completePurchaseSpanIcon)
+    completePurchase.appendChild(completePurchaseSpanText)
+
+    completePurchaseSpanIcon.innerHTML='<i class="fas fa-check"></i>';
+    completePurchaseSpanText.innerText="Slutför ditt köp"
+    completePurchase.classList.add("completePuchase-button", "btn-primary");
+    main.appendChild(header)
+    main.appendChild(container)
+    main.appendChild(totalPrice)
+    main.appendChild(completePurchase)
+    console.log(main)
 }
+
 
 function deleteElemet(product){
     var storedNames = JSON.parse(localStorage.getItem("shoppingList"))

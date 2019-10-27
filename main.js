@@ -26,26 +26,32 @@ function addProductsToWebpage() {
     var main = document.getElementsByTagName("main")[0]
 
         var container = document.createElement("div")
-        container.className = "container"
+        container.classList.add("container")
     
         for(var i = 0; i < listOfProducts.length; i++) {
             var selectedPhone= listOfProducts[i]
             var phoneCard = createPhoneCard(selectedPhone)
-            phoneCard.classList.add="phoneCard"
+            phoneCard.classList.add("phoneCard")
             container.appendChild(phoneCard)
-            var buyButton=document.createElement("button");
-            buyButton.id="bBtn"
-            buyButton.innerText="add to basket  "
-            var shoppingCart=document.createElement("div")
-            shoppingCart.className='fas fa-shopping-cart fa'
-            buyButton.appendChild(shoppingCart)
-            buyButton.className='btn btn-primary'
+            
+            var buyButton = document.createElement("button");
+            var spanForButtonText = document.createElement("span");
+            var spanForButtonIcon = document.createElement("span");
+
+            buyButton.appendChild(spanForButtonIcon);
+            buyButton.appendChild(spanForButtonText);
+
+            spanForButtonIcon.innerHTML = '<i class="fas fa-cart-arrow-down own-fa-cart-arrow-down"></i>';
+            spanForButtonText.innerText = "Lägg till i kundvagnen";
+            buyButton.classList.add("shopping-button", "btn-primary");
+
+
             buyButton.data = listOfProducts[i]
-           buyButton.addEventListener("click", function() {
+            buyButton.addEventListener("click", function() {
                 addToCart(this.data)
            })
             container.appendChild(buyButton)
-            //console.log(selectedPhone);
+            
            
         }
        
@@ -55,7 +61,7 @@ function addProductsToWebpage() {
 
 function createPhoneCard(selectedPhone) {
     var phoneCard= document.createElement("div")
-    phoneCard.className="pCard"
+    phoneCard.classList.add("main-pageProduct-container")
     var infoList = document.createElement("ul")
 
     var phoneName = document.createElement("h2")
@@ -66,7 +72,7 @@ function createPhoneCard(selectedPhone) {
     phoneName.innerText = selectedPhone.title
     phoneDescription.innerText = selectedPhone.description
     phoneImage.setAttribute('src',"./assets/" + selectedPhone.image)
-    phonePrice.innerText = selectedPhone.price
+    phonePrice.innerText = selectedPhone.price+" "+"kr";
   
     phoneImage.className="pI"
     infoList.appendChild(phoneName)
@@ -89,6 +95,7 @@ function setHeader(){
     var mainPageLink=document.createElement("a")
     mainPageLink.href="/index.html"
     mainPageLink.innerText="TechStore"
+    mainPageLink.className="nav-link navbar"
     header1.appendChild(mainPageLink)
 
     var headerDiv=document.createElement("div")
