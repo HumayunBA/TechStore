@@ -110,7 +110,7 @@ function setHeader(){
     shoppingCart.className='fas fa-shopping-cart fa'
     shoppingCart.id=shoppingCart;
     shoppingCart.addEventListener('click', function(e) {
-        window.location.href = './checkOut.html'
+        window.location.href = './kundvagn.html'
     }, false);
    
     shoppingCart.addEventListener("mouseover", function(){
