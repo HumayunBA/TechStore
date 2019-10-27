@@ -19,7 +19,6 @@ function initSite() {
      
 }
 
-
 function addProductsToWebpage() {
 
     setHeader()
@@ -50,11 +49,9 @@ function addProductsToWebpage() {
            
         }
        
-      
         main.appendChild(container)
        
 }
-
 
 function createPhoneCard(selectedPhone) {
     var phoneCard= document.createElement("div")
@@ -80,7 +77,6 @@ function createPhoneCard(selectedPhone) {
 
     return phoneCard;
 }
-
 
 function setHeader(){
     var header = document.getElementsByTagName("header")
@@ -122,13 +118,11 @@ function setHeader(){
     headerBox.appendChild(headerDiv)
 
     header[0].appendChild(headerBox)
-    
 }
 
   function add(){
       counter++;
   }
-
 
 function addToCart(product){ 
     if (!localStorage.getItem("shoppingList")) {

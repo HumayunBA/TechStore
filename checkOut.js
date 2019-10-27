@@ -15,6 +15,7 @@ function setHeader(){
     var mainPageLink=document.createElement("a")
     //mainPageLink.setAttribute(href, "/index.html")
     mainPageLink.href="/index.html"
+    mainPageLink.className="nav-link"
     mainPageLink.innerText="TechStore"
     header1.appendChild(mainPageLink)
 
@@ -28,7 +29,7 @@ function setHeader(){
     productCounter.innerText=storedNames.length
 
     var shoppingCart=document.createElement("div")
-    shoppingCart.className='fas fa-shopping-cart fa'
+    shoppingCart.className="fas fa-shopping-cart fa"
     shoppingCart.id=shoppingCart;
     shoppingCart.addEventListener('click', function(e) {
         window.location.href = '/checkOut.html'
@@ -48,9 +49,6 @@ function setHeader(){
     header[0].appendChild(headerBox)
     
 }
-
-
-
 
   function createPhoneCard(selectedPhone) { 
     var phoneCard2= document.createElement("div")
@@ -85,8 +83,6 @@ function setHeader(){
     return phoneCard2;
 }
 
-
-
 function bodyCreate(){ 
     
     var main = document.getElementsByTagName("main")[0]
@@ -111,8 +107,8 @@ function bodyCreate(){
           var totalPrice=document.createElement("div") 
           totalPrice.innerText="Total price: "+totalSum
          
-          var completePurchase=document.createElement("button");
-          completePurchase.className="fas fa-check btn btn-primary ";
+          var completePurchase=document.createElement("button")
+          completePurchase.className="fas fa-check btn btn-primary"
             completePurchase.innerText="Complete the purchase"
             main.appendChild(header)
             main.appendChild(container)
