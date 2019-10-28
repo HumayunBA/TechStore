@@ -16,13 +16,8 @@ function loadProducts() {
 
 
 function initSite() {
-<<<<<<< HEAD
       loadProducts();
      
-=======
-    localStorage.clear()
-    loadProducts(); 
->>>>>>> ab215a165ed87784cabdbde8188eb1c0c668d209
 }
 
 function addProductsToWebpage() {
