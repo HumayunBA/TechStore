@@ -143,9 +143,35 @@ function deleteElemet(product){
     window.location.reload(); 
 }
 
-function finishPurchase(){
-    localStorage.clear()
 
+
+
+function finishPurchase(){
     
+    first();
+
+    setTimeout(() => {
+        second();
+    }, 4000);
+   
+       
+   };
+
+
+function first () {
+    localStorage.clear();
+     
+    Swal.fire({
+        position: 'center',
+        type: 'success',
+        title: 'Tack för att du har köpt med oss!',
+        showConfirmButton: false,
+        timer: 8000
+      })
+   };
+
+
+function second () {
+
     window.location.reload(); 
-}
+};
