@@ -14,10 +14,8 @@ function loadProducts() {
 }
 
 function initSite() {
-    localStorage.clear()
       loadProducts();
-     
-}
+     }
 
 function addProductsToWebpage() {
 

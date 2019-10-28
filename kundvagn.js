@@ -126,6 +126,9 @@ function bodyCreate(){
     completePurchaseSpanIcon.innerHTML='<i class="fas fa-check"></i>';
     completePurchaseSpanText.innerText="Slutför ditt köp"
     completePurchase.classList.add("completePuchase-button", "btn-primary");
+    completePurchase.addEventListener("click",function(){
+         finishPurchase()}
+         )
     main.appendChild(header)
     main.appendChild(container)
     main.appendChild(totalPrice)
@@ -147,3 +150,7 @@ function deleteElemet(product){
     window.location.reload(); 
 }
 
+function finishPurchase(){
+    localStorage.clear()
+    window.location.reload(); 
+}
