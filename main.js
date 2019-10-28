@@ -15,8 +15,7 @@ function loadProducts() {
 
 function initSite() {
     localStorage.clear()
-      loadProducts();
-     
+    loadProducts(); 
 }
 
 function addProductsToWebpage() {
@@ -34,29 +33,25 @@ function addProductsToWebpage() {
             phoneCard.classList.add("phoneCard")
             container.appendChild(phoneCard)
             
-            var buyButton = document.createElement("button");
-            var spanForButtonText = document.createElement("span");
-            var spanForButtonIcon = document.createElement("span");
+            var buyButton = document.createElement("button")
+            var spanForButtonText = document.createElement("span")
+            var spanForButtonIcon = document.createElement("span")
 
             buyButton.appendChild(spanForButtonIcon);
             buyButton.appendChild(spanForButtonText);
 
             spanForButtonIcon.innerHTML = '<i class="fas fa-cart-arrow-down own-fa-cart-arrow-down"></i>';
-            spanForButtonText.innerText = "Lägg till i kundvagnen";
-            buyButton.classList.add("shopping-button", "btn-primary");
-
+            spanForButtonText.innerText = "Lägg till i kundvagnen"
+            buyButton.classList.add("shopping-button", "btn-primary")
 
             buyButton.data = listOfProducts[i]
             buyButton.addEventListener("click", function() {
                 addToCart(this.data)
            })
             container.appendChild(buyButton)
-            
-           
         }
        
-        main.appendChild(container)
-       
+        main.appendChild(container)  
 }
 
 function createPhoneCard(selectedPhone) {
@@ -90,7 +85,6 @@ function setHeader(){
     var headerBox=document.createElement("ul")
     headerBox.classList="headerBox"
     
- 
     var header1=document.createElement("h1")
     var mainPageLink=document.createElement("a")
     mainPageLink.href="/index.html"
@@ -119,7 +113,6 @@ function setHeader(){
     
     headerDiv.appendChild(productCounter)
     headerDiv.appendChild(shoppingCart)
-
 
     headerBox.appendChild(header1)
     headerBox.appendChild(headerDiv)

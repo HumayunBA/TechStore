@@ -1,18 +1,15 @@
 
 * {
     box-sizing: border-box;
-    /* margin: 0; */
-    padding: 0;
-   
+    margin: 0;
+    padding: 0;  
 }
-
 
 body {
     text-decoration: none;
-
 }
 .pI{
-    height: 15rem;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -27,16 +24,12 @@ body {
     align-items: center;
     position: fixed;
     z-index: 1;
-    top: 0;
-     
+    top: 0;    
 }
-
-
 
 h1{
     color: white;
-    padding: 5px;
-    
+    padding: 5px;   
 }
 
 .headerDiv{
@@ -46,8 +39,7 @@ h1{
     padding-right: 10px; 
     margin-right: 10px;
     align-items: center;
-    font-size: 25px;
-    
+    font-size: 25px;   
 }
 
 #productCounter {
@@ -55,7 +47,7 @@ h1{
 }
 
 main{
-    /* width: 100%; */
+    width: 100%;
     text-align: center;
     margin-top: 50px;
     font-weight: bold;
@@ -63,14 +55,11 @@ main{
 }
 
 #mainBody{
-    
    display: inline-block;
-   
 }
 
 a{
     color: white;
-    
     text-decoration: none;
 }
 
@@ -78,11 +67,9 @@ a{
 margin-bottom: 80;
 }
 
-
 .main-pageProduct-container {
     margin-bottom: 10px;
-    font-weight: bold;
-    
+    font-weight: bold;   
 }
 
 .card{
@@ -95,7 +82,6 @@ margin-bottom: 80;
     border: 3px solid lightskyblue;
     border-radius: 10%
   }
-
 
 .shopping-button {
     width: 230px;
@@ -110,7 +96,6 @@ button span {
       margin: 5px;
   }
 
-
 .delete-button {
       width: 150px;
       height: 40px;
@@ -121,7 +106,6 @@ button span {
 .delete-button span {
     margin: 5px;
 }
-
 
 .completePuchase-button {
     width: 180px;
