@@ -145,5 +145,7 @@ function deleteElemet(product){
 
 function finishPurchase(){
     localStorage.clear()
+
+    
     window.location.reload(); 
 }
