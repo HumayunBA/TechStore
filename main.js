@@ -1,5 +1,5 @@
 var listOfProduct
-var counter=0;
+var counter=JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")).length:0;
 
 
 function loadProducts() {
@@ -16,8 +16,13 @@ function loadProducts() {
 
 
 function initSite() {
+<<<<<<< HEAD
+      loadProducts();
+     
+=======
     localStorage.clear()
     loadProducts(); 
+>>>>>>> ab215a165ed87784cabdbde8188eb1c0c668d209
 }
 
 function addProductsToWebpage() {
