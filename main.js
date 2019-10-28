@@ -1,5 +1,5 @@
 var listOfProduct
-var counter=JSON.parse(localStorage.getItem("shoppingList")).length;
+var counter=JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")).length:0;
 
 
 function loadProducts() {
