@@ -1,8 +1,7 @@
 function initSite() {
    
       setHeader();
-      bodyCreate();
-        
+      bodyCreate();       
 }
 function setHeader(){
     var header = document.getElementsByTagName("header")
@@ -10,10 +9,9 @@ function setHeader(){
     var headerBox=document.createElement("ul")
     headerBox.classList="headerBox"
     
-    //var infoList = document.createElement("ul")
     var header1=document.createElement("h1")
     var mainPageLink=document.createElement("a")
-    //mainPageLink.setAttribute(href, "/index.html")
+    
     mainPageLink.href="/index.html"
     mainPageLink.className="nav-link"
     mainPageLink.innerText="TechStore"
@@ -42,12 +40,10 @@ function setHeader(){
     headerDiv.appendChild(productCounter)
     headerDiv.appendChild(shoppingCart)
 
-
     headerBox.appendChild(header1)
     headerBox.appendChild(headerDiv)
 
-    header[0].appendChild(headerBox)
-    
+    header[0].appendChild(headerBox)  
 }
 
   function createPhoneCard(selectedPhone) { 
@@ -55,12 +51,11 @@ function setHeader(){
     phoneCard2.className="card"
     var infoList = document.createElement("ul")
 
-    
     var phoneImage = document.createElement("img")
     var phoneName = document.createElement("h2")
     var phonePrice = document.createElement("p")
     var deleteButton=document.createElement("button");
-   // buyButton.id="bBtn"
+   
     var spanForButtonText = document.createElement("span");
     var spanForButtonIcon = document.createElement("span");
     deleteButton.appendChild(spanForButtonIcon);
@@ -69,7 +64,6 @@ function setHeader(){
     phoneName.innerText = selectedPhone.title
     phoneImage.setAttribute('src',"./assets/" + selectedPhone.image)
     phonePrice.innerText = selectedPhone.price+" "+"kr";
-    
     
     spanForButtonIcon.innerHTML = '<i class="far fa-trash-alt"></i>';
     spanForButtonText.innerText = "Ta bort";
@@ -135,7 +129,6 @@ function bodyCreate(){
     main.appendChild(completePurchase)
     console.log(main)
 }
-
 
 function deleteElemet(product){
     var storedNames = JSON.parse(localStorage.getItem("shoppingList"))
