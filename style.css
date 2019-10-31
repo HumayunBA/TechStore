@@ -24,7 +24,16 @@ body {
     align-items: center;
     position: fixed;
     z-index: 1;
-    top: 0;    
+    top: 0; 
+    text-decoration: none;
+       
+}
+
+a:hover 
+{
+     color:white; 
+     text-decoration:none; 
+     cursor:pointer;  
 }
 
 h1{
