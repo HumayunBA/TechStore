@@ -1,3 +1,4 @@
+var checked=false;
 function initSite() {
    
     setHeader();
@@ -86,13 +87,31 @@ function setLogIn(){
     input2.id="inputPassword" 
     input2.className="form-control" 
     input2.placeholder="Password"
+ 
+    var label3=document.createElement("label")
 
+    var input3=document.createElement("input")
+    input3.type="checkbox"
+    input3.id="myCheck"
+    input3.value="Register me"
+    input3.addEventListener('change', e => {
+      if(e.target.checked){
+          checked=true
+      }
+    else{
+      cheked=false
+    }})
+
+      label3.appendChild(input3)
  var submitBtn=document.createElement("button")
  //submitBtn.className="btn btn-lg btn-primary btn-block"
  //submitBtn.type="submit"
  submitBtn.innerText="Sign in"
- submitBtn.addEventListener('click' ,function(){
-   login(),false})
+ submitBtn.addEventListener('click' ,function(e){
+  e.preventDefault();
+   login();})
+   
+
 
  //form.appendChild(img)
  form.appendChild(h1)
@@ -100,6 +119,7 @@ function setLogIn(){
  form.appendChild(input1)
  form.appendChild(label2)
  form.appendChild(input2)
+ form.appendChild(label3)
  form.appendChild(submitBtn)
 
  body.appendChild(form)
@@ -144,28 +164,31 @@ var objPeople = [
 
 
 function login() {
+  if (checked==false){
 	var username = document.getElementById('inputEmail').value
 	var password = document.getElementById('inputPassword').value
-console.log(username)
 	for(var i = 0; i < objPeople.length; i++) {
 		if(username == objPeople[i].username && password == objPeople[i].password) {
 			console.log(username + ' is logged in!!!')
 			// stop the statement if result is found true - this was a return in the video, break is best practice here
-			break
-		} else {
+			break;
+    } else if(i==objPeople.length-1)
+     {
 			// error if username and password don't match
 			console.log('incorrect username or password')
 		}
-	}
+  }
+}
+else {
+  registerUser()
+  checked=false
+}
 }
 
-// register functionality
-/*function registerUser() {
-	// store new users username
-	var registerUsername = document.getElementById('newUsername').value
-	// store new users password
-	var registerPassword = document.getElementById('newPassword').value
-	// store new user data in an object
+
+function registerUser() {
+	var registerUsername = document.getElementById('inputEmail').value
+	var registerPassword = document.getElementById('inputPassword').value
 	var newUser = {
 		username: registerUsername,
 		password: registerPassword
@@ -173,10 +196,9 @@ console.log(username)
 	// loop throught people array to see if the username is taken, or password to short
 	for(var i = 0; i < objPeople.length; i++) {
 		// check if new username is equal to any already created usernames
-		if(registerUser == objPeople[i].username) {
+		if(registerUsername == objPeople[i].username) {
 			// alert user that the username is take
 			alert('That username is alreat in user, please choose another')
-			// stop the statement if result is found true
 			break
 		// check if new password is 8 characters or more
 		} else if (registerPassword.length < 8) {
@@ -190,4 +212,4 @@ console.log(username)
 	objPeople.push(newUser)
 	// console the updated people array
 	console.log(objPeople)
-}*/
+}
