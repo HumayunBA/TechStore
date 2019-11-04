@@ -97,8 +97,17 @@ function setHeader(){
     var headerDiv=document.createElement("div")
     headerDiv.className="headerDiv"
 
+    var logInPage=document.createElement("div")
+    logInPage.className='fas fa-sign-in-alt'
+    //shoppingCart.id=shoppingCart;
+    logInPage.addEventListener('click', function(e) {
+        window.location.href = './logInPage.html'
+    }, false);
+    logInPage.addEventListener("mouseover", function(){
+        logInPage.style.cursor = "pointer";
+    })
+
     var productCounter=document.createElement("div")
-    
     productCounter.innerText=counter;
     productCounter.id="productCounter"
 
@@ -108,11 +117,10 @@ function setHeader(){
     shoppingCart.addEventListener('click', function(e) {
         window.location.href = './kundvagn.html'
     }, false);
-   
     shoppingCart.addEventListener("mouseover", function(){
         shoppingCart.style.cursor = "pointer";
     })
-    
+    headerDiv.appendChild(logInPage)
     headerDiv.appendChild(productCounter)
     headerDiv.appendChild(shoppingCart)
 
