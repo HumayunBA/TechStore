@@ -98,7 +98,12 @@ function setHeader(){
     headerDiv.className="headerDiv"
 
     var logInPage=document.createElement("div")
-    logInPage.className='fas fa-sign-in-alt'
+    
+    if(localStorage.getItem('inLoggedUser')){
+        logInPage.classList='fas fa-sign-in-alt fa-rotate-180'
+    }
+   else logInPage.className='fas fa-sign-in-alt '
+    //logInPage.className='fas fa-sign-in-alt '
     //shoppingCart.id=shoppingCart;
     logInPage.addEventListener('click', function(e) {
         window.location.href = './logInPage.html'

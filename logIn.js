@@ -1,8 +1,12 @@
 var checked=false;
 function initSite() {
-   
+ // localStorage.clear()
     setHeader();
-    setLogIn()
+    if(!localStorage.getItem('inLoggedUser')){
+    setLogIn()}
+    else {
+      account();
+    }
           
 }
 function setHeader(){
@@ -22,6 +26,20 @@ function setHeader(){
   var headerDiv=document.createElement("div")
   headerDiv.className="headerDiv"
 
+  var logInPage=document.createElement("div")
+  if(localStorage.getItem('inLoggedUser')){
+    logInPage.classList='fas fa-sign-in-alt fa-rotate-180'
+}
+else logInPage.className='fas fa-sign-in-alt '
+  //shoppingCart.id=shoppingCart;
+  logInPage.addEventListener('click', function(e) {
+      window.location.href = './logInPage.html'
+  }, false);
+  logInPage.addEventListener("mouseover", function(){
+      logInPage.style.cursor = "pointer";
+  })
+
+
   var productCounter=document.createElement("div")
   productCounter.id="productCounter"
 
@@ -38,7 +56,7 @@ function setHeader(){
   shoppingCart.addEventListener("mouseover", function(){
       shoppingCart.style.cursor = "pointer";
   })
-  
+  headerDiv.appendChild(logInPage)
   headerDiv.appendChild(productCounter)
   headerDiv.appendChild(shoppingCart)
 
@@ -51,17 +69,11 @@ function setHeader(){
 
 
 function setLogIn(){
-    var body=document.getElementsByTagName("body")[0]
-    body.className="text-center"
+    var main=document.getElementsByTagName("main")[0]
+    main.className="text-center body2"
 
     var form=document.createElement("form")
     form.className="form-signin"
-
-   /* var img=document.createElement("img")
-    img.className="mb-4"
-    img.src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-    img.width="72"
-    img.height="72"*/
 
     var h1=document.createElement("h1")
     h1.className="mb-4"
@@ -92,8 +104,8 @@ function setLogIn(){
 
     var input3=document.createElement("input")
     input3.type="checkbox"
-    input3.id="myCheck"
     input3.value="Register me"
+    label3.innerText="register new user  "
     input3.addEventListener('change', e => {
       if(e.target.checked){
           checked=true
@@ -104,12 +116,13 @@ function setLogIn(){
 
       label3.appendChild(input3)
  var submitBtn=document.createElement("button")
- //submitBtn.className="btn btn-lg btn-primary btn-block"
- //submitBtn.type="submit"
+ submitBtn.className="btn btn-lg btn-primary btn-block"
+ submitBtn.type="submit"
  submitBtn.innerText="Sign in"
  submitBtn.addEventListener('click' ,function(e){
   e.preventDefault();
-   login();})
+   login();
+  })
    
 
 
@@ -122,7 +135,7 @@ function setLogIn(){
  form.appendChild(label3)
  form.appendChild(submitBtn)
 
- body.appendChild(form)
+ main.appendChild(form)
   
 }
 
@@ -147,38 +160,43 @@ function setLogIn(){
 
   
 
-var objPeople = [
-	{
-		username: 'sam@s',
-		password: '1'
-	},
-	{
-		username: 'matt',
-		password: 'password88'
-	},
-	{
-		username: 'chris',
-		password: 'password3'
-	}
-]
 
 
 function login() {
+  
   if (checked==false){
 	var username = document.getElementById('inputEmail').value
-	var password = document.getElementById('inputPassword').value
-	for(var i = 0; i < objPeople.length; i++) {
-		if(username == objPeople[i].username && password == objPeople[i].password) {
-			console.log(username + ' is logged in!!!')
-			// stop the statement if result is found true - this was a return in the video, break is best practice here
-			break;
-    } else if(i==objPeople.length-1)
+  var password = document.getElementById('inputPassword').value
+  
+  if (!localStorage.getItem("userList")) {
+    localStorage.setItem("userList", "[]");
+}
+  var storedUsers = JSON.parse(localStorage.getItem("userList"))
+if(storedUsers.length==0){
+  alert("No users are registered")
+}
+	for(var i = 0; i < storedUsers.length; i++) {
+		if(username == storedUsers[i].username && password == storedUsers[i].password) {
+      console.log(username + ' is logged in!!!')
+      var newUser={username: username,
+        password: password, 
+        items: storedUsers[i].items
+      }
+      localStorage.setItem('inLoggedUser',JSON.stringify(newUser))
+      window.location.reload(); 
+      account();
+     // window.location.reload();
+      //localStorage.setItem('inLoggedUser',JSON.stringify(newUser))	
+      		break;
+    } else //if(i==storedUsers.length-1 )
      {
-			// error if username and password don't match
-			console.log('incorrect username or password')
+             console.log('incorrect username or password')
+      //alert('incorrect username or password')
 		}
   }
+  
 }
+
 else {
   registerUser()
   checked=false
@@ -188,28 +206,76 @@ else {
 
 function registerUser() {
 	var registerUsername = document.getElementById('inputEmail').value
-	var registerPassword = document.getElementById('inputPassword').value
+  var registerPassword = document.getElementById('inputPassword').value
+  
+  if (!localStorage.getItem("userList")) {
+    localStorage.setItem("userList", "[]");
+}
+var storedUsers = JSON.parse(localStorage.getItem("userList"))
+
 	var newUser = {
 		username: registerUsername,
-		password: registerPassword
-	}
-	// loop throught people array to see if the username is taken, or password to short
-	for(var i = 0; i < objPeople.length; i++) {
-		// check if new username is equal to any already created usernames
-		if(registerUsername == objPeople[i].username) {
-			// alert user that the username is take
+    password: registerPassword,
+    items: JSON.parse(localStorage.getItem('shoppingList'))
+  }
+  var i=0
+	for(i ; i < storedUsers.length; i++) {
+		if(registerUsername == storedUsers[i].username) {
 			alert('That username is alreat in user, please choose another')
 			break
-		// check if new password is 8 characters or more
-		} else if (registerPassword.length < 8) {
+		} 
+  }
+  if (i==storedUsers.length){
+storedUsers.push(newUser)
+localStorage.setItem('inLoggedUser',JSON.stringify(newUser))
+localStorage.setItem('userList', JSON.stringify(storedUsers)); 
+console.log(localStorage.inLoggedUser)
+  }
+  }
+
+
+
+
+
+//ubmitBtn.addEventListener('click' ,function(e){
+  //e.preventDefault();
+   //login();})
+   
+
+
+
+
+
+
+
+function account(){
+  //window.location.reload(); 
+    var main=document.getElementsByTagName("main")[0]
+    var text1=document.createElement("p")
+    var user=JSON.parse(localStorage.getItem("inLoggedUser"))
+    text1.innerText=user.username+ ",welcome back!"
+
+
+    var logOutBtn=document.createElement("button")
+    logOutBtn.className="btn btn-lg btn-primary btn-block"
+    logOutBtn.type="submit"
+    logOutBtn.innerText="Log out"
+    logOutBtn.addEventListener('click' ,function(e){
+     e.preventDefault();
+     localStorage.removeItem('inLoggedUser');
+    window.location.reload(); 
+ })
+    main.appendChild(text1)
+    main.appendChild(logOutBtn)
+  }
+
+
+
+
+
+/*else if (registerPassword.length < 8) {
 			// alert user that the password is to short
 			alert('That is to short, include 8 or more characters')
 			// stop the statement if result is found true
 			break
-		}
-	}
-	// push new object to the people array
-	objPeople.push(newUser)
-	// console the updated people array
-	console.log(objPeople)
-}
+		}*/

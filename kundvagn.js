@@ -1,5 +1,4 @@
 function initSite() {
-   
       setHeader();
       bodyCreate();       
 }
@@ -20,6 +19,21 @@ function setHeader(){
     var headerDiv=document.createElement("div")
     headerDiv.className="headerDiv"
 
+    var logInPage=document.createElement("div")
+   
+    if(localStorage.getItem('inLoggedUser')){
+        logInPage.classList='fas fa-sign-in-alt fa-rotate-180'
+    }
+   else logInPage.className='fas fa-sign-in-alt '
+
+    //shoppingCart.id=shoppingCart;
+    logInPage.addEventListener('click', function(e) {
+        window.location.href = './logInPage.html'
+    }, false);
+    logInPage.addEventListener("mouseover", function(){
+        logInPage.style.cursor = "pointer";
+    })
+
     var productCounter=document.createElement("div")
     productCounter.id="productCounter"
 
@@ -36,7 +50,7 @@ function setHeader(){
     shoppingCart.addEventListener("mouseover", function(){
         shoppingCart.style.cursor = "pointer";
     })
-    
+    headerDiv.appendChild(logInPage)
     headerDiv.appendChild(productCounter)
     headerDiv.appendChild(shoppingCart)
 
@@ -94,7 +108,18 @@ function bodyCreate(){
     container.id="phones"
     container.className="row d-flex justify-content-center"
     var totalSum=0;
-    var listOfProducts=JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")):[]
+   var listOfProducts
+   console.log(JSON.parse(localStorage.getItem('inLoggedUser')))
+    if(localStorage.getItem('inLoggedUser')){
+        var products=JSON.parse(localStorage.getItem('inLoggedUser'))
+
+        listOfProducts=products.items
+      
+    }
+   else 
+     {  listOfProducts=JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")):[]
+    }
+
             for(var i = 0; i < listOfProducts.length; i++) {
                 var selectedPhone= listOfProducts[i]
                 var phoneCard = createPhoneCard(selectedPhone)
