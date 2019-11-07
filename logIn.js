@@ -210,6 +210,7 @@ function registerUser() {
     storedUsers.push(newUser)
     localStorage.setItem('inLoggedUser',JSON.stringify(newUser))
     localStorage.setItem('storedUsers', JSON.stringify(storedUsers)); 
+    window.location.reload(); 
     console.log(localStorage.inLoggedUser)
   }
 }
@@ -255,7 +256,7 @@ function account(){
     var logOutBtn=document.createElement("button")
     logOutBtn.className="btn btn-lg btn-primary btn-block"
     logOutBtn.type="submit"
-    logOutBtn.innerText="Log out"
+    logOutBtn.innerText="Logga ut"
     logOutBtn.addEventListener('click' ,function(e){
      e.preventDefault();
      localStorage.removeItem('inLoggedUser');
