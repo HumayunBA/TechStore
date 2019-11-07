@@ -60,7 +60,7 @@ function setHeader(){
     header[0].appendChild(headerBox)  
 }
 
-  function createPhoneCard(selectedPhone) { 
+function createPhoneCard(selectedPhone) { 
     var phoneCard2= document.createElement("div")
     phoneCard2.className="card"
     var infoList = document.createElement("ul")
@@ -85,7 +85,7 @@ function setHeader(){
     deleteButton.data=selectedPhone.num
      deleteButton.addEventListener("click", function() {
         deleteElemet(this.data)
-   })
+    })
 
     phoneImage.className="pI"
    
@@ -108,18 +108,9 @@ function bodyCreate(){
     container.id="phones"
     container.className="row d-flex justify-content-center"
     var totalSum=0;
-   var listOfProducts
-   console.log(JSON.parse(localStorage.getItem('inLoggedUser')))
-    if(localStorage.getItem('inLoggedUser')){
-        var products=JSON.parse(localStorage.getItem('inLoggedUser'))
-
-        listOfProducts=products.items
-      
-    }
-   else 
-     {  listOfProducts=JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")):[]
-    }
-
+    var listOfProducts  
+    listOfProducts=JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")):[]
+    
             for(var i = 0; i < listOfProducts.length; i++) {
                 var selectedPhone= listOfProducts[i]
                 var phoneCard = createPhoneCard(selectedPhone)
@@ -127,10 +118,9 @@ function bodyCreate(){
                 phoneCard.classList.add="col-sm-6"
                 container.appendChild(phoneCard)
              totalSum+=Number(selectedPhone.price)
-               
-            }
+           }
 
-            console.log(totalSum)
+    console.log(totalSum)
     var totalPrice=document.createElement("div") 
     totalPrice.innerText="Totalt pris: "+totalSum+" "+"kr";
     
@@ -146,8 +136,7 @@ function bodyCreate(){
     completePurchaseSpanText.innerText="Slutför ditt köp"
     completePurchase.classList.add("completePuchase-button", "btn-primary");
     completePurchase.addEventListener("click",function(){
-         finishPurchase()}
-         )
+         finishPurchase()})
     main.appendChild(header)
     main.appendChild(container)
     main.appendChild(totalPrice)
@@ -172,19 +161,32 @@ function deleteElemet(product){
 
 
 function finishPurchase(){
-    
+    var storedUsers = JSON.parse(localStorage.getItem("storedUsers"))
+    var inLoggedUser=JSON.parse(localStorage.getItem("inLoggedUser"))
+    for(var i = 0; i < storedUsers.length; i++) {
+		if(inLoggedUser.username == storedUsers[i].username){
+           inLoggedUser.items.push(JSON.parse(localStorage.getItem("shoppingList")))
+           localStorage.setItem("inLoggedUser", JSON.stringify(inLoggedUser)); 
+
+            storedUsers[i].items=inLoggedUser.items
+            localStorage.setItem("storedUsers", JSON.stringify(storedUsers)); 
+
+            console.log( storedUsers[i].items)
+        }
+    } 
+    console.log()
     first();
 
     setTimeout(() => {
         second();
-    }, 4000);
+    }, 2000);
    
        
    };
 
 
 function first () {
-    localStorage.clear();
+    localStorage.removeItem("shoppingList");
      
     Swal.fire({
         position: 'center',
