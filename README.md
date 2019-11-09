@@ -20,7 +20,7 @@ This document gives an overview of how the e-commerce website Tech Store works.
 
 ## Main Page <a name="main-page"></a>
 
-*The main page contains the vertical list of phones which you can add to the shopping card by clicking "Lägg till i kundvagnen" button.*
+*The main page contains the vertical list of phones which you can add to the shopping cart by clicking "Lägg till i kundvagnen" button.*
 
 ## Log In
 
