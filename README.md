@@ -1,7 +1,7 @@
 # Tech Store
 
 This document gives an overview of how the e-commerce website Tech Store works.
-
+Repository:  https://github.com/pollyy1/groupProject.git
 ### Table of Contents
 
 - [Tools](#tools)
