@@ -103,8 +103,6 @@ function setHeader(){
         logInPage.classList='fas fa-sign-in-alt fa-rotate-180'
     }
    else logInPage.className='fas fa-sign-in-alt '
-    //logInPage.className='fas fa-sign-in-alt '
-    //shoppingCart.id=shoppingCart;
     logInPage.addEventListener('click', function(e) {
         window.location.href = './logInPage.html'
     }, false);
@@ -145,11 +143,6 @@ function addToCart(product){
     }
     var storedNames = JSON.parse(localStorage.getItem("shoppingList"))
    
-   //JSON.parse(localStorage.getItem("shoppingList"))?JSON.parse(localStorage.getItem("shoppingList")): [];
-   console.log(product)
-   console.log(storedNames)
-  // var storedNames = storedNames ? JSON.parse(localStorage.getItem("shoppingList")) : {};
-     //console.log(storedNames)
      var length=storedNames.length;
      var product1=product;
      product1.num=length;

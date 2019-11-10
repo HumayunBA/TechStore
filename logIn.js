@@ -1,6 +1,5 @@
 var checked=false;
 function initSite() {
- //localStorage.clear()
     setHeader();
     if(localStorage.getItem('inLoggedUser')){
       account();}
@@ -31,7 +30,6 @@ function setHeader(){
     logInPage.classList='fas fa-sign-in-alt fa-rotate-180'
 }
 else logInPage.className='fas fa-sign-in-alt '
-  //shoppingCart.id=shoppingCart;
   logInPage.addEventListener('click', function(e) {
       window.location.href = './logInPage.html'
   }, false);
@@ -122,7 +120,6 @@ function setLogIn(){
  submitBtn.addEventListener('click' ,function(e){
   e.preventDefault();
    login();
-   //window.location.reload(); 
   })
    
 
@@ -172,7 +169,6 @@ function login() {
     } else //if(i==storedUsers.length-1 )
      {
              console.log('incorrect username or password')
-      //alert('incorrect username or password')
 		}
   }
   
@@ -216,30 +212,6 @@ function registerUser() {
 }
 
 
-
-var users = [
-  {
-    username: "victor",
-    password: "123",
-    orders: []
-  }
-]
-
-
-
-
-
-//ubmitBtn.addEventListener('click' ,function(e){
-  //e.preventDefault();
-   //login();})
-   
-
-
-
-
-
-
-
 function account(){
 
     var main=document.getElementsByTagName("main")[0]
@@ -272,7 +244,6 @@ function account(){
     for(var j=0;j<purchases.length;j++){
       var orderContainer= document.createElement("div")
       orderContainer.id="phones"
-      //orderContainer.className="row d-flex justify-content-space-around justify-content-flex-end"
       var totalSum=0
       var sum=document.createElement("p")
        for(var i = 0; i < purchases[j].length; i++) {
@@ -325,9 +296,3 @@ function smallPhoneCard(selectedPhone) {
 
 
 
-/*else if (registerPassword.length < 8) {
-			// alert user that the password is to short
-			alert('That is to short, include 8 or more characters')
-			// stop the statement if result is found true
-			break
-		}*/

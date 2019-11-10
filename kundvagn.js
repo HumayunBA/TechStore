@@ -166,7 +166,10 @@ function finishPurchase(){
 if(!inLoggedUser){
     if (confirm("Du är inte inloggad, vill du slutför ditt köp?")) {
    
-  } else return }
+  } else 
+  return 
+}
+
     if(inLoggedUser){
     var storedUsers = JSON.parse(localStorage.getItem("storedUsers"))
     for(var i = 0; i < storedUsers.length; i++) {
