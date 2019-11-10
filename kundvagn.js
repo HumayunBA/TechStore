@@ -161,8 +161,14 @@ function deleteElemet(product){
 
 
 function finishPurchase(){
-    var storedUsers = JSON.parse(localStorage.getItem("storedUsers"))
     var inLoggedUser=JSON.parse(localStorage.getItem("inLoggedUser"))
+
+if(!inLoggedUser){
+    if (confirm("Du är inte inloggad, vill du slutför ditt köp?")) {
+   
+  } else return }
+    if(inLoggedUser){
+    var storedUsers = JSON.parse(localStorage.getItem("storedUsers"))
     for(var i = 0; i < storedUsers.length; i++) {
 		if(inLoggedUser.username == storedUsers[i].username){
            inLoggedUser.items.push(JSON.parse(localStorage.getItem("shoppingList")))
@@ -171,9 +177,9 @@ function finishPurchase(){
             storedUsers[i].items=inLoggedUser.items
             localStorage.setItem("storedUsers", JSON.stringify(storedUsers)); 
 
-            console.log( storedUsers[i].items)
+           // console.log( storedUsers[i].items)
         }
-    } 
+    } }
     console.log()
     first();
 
