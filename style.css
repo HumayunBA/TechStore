@@ -77,10 +77,16 @@ margin-bottom: 80;
 }
 
 .main-pageProduct-container {
+    text-align: center;
     margin-bottom: 10px;
     font-weight: bold;   
 }
-
+ul{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+justify-content: space-between;
+}
 .card{
     background-repeat: no-repeat;
     background-position: 50% 50%;

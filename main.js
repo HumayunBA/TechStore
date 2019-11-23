@@ -35,22 +35,7 @@ function addProductsToWebpage() {
             phoneCard.classList.add("phoneCard")
             container.appendChild(phoneCard)
             
-            var buyButton = document.createElement("button")
-            var spanForButtonText = document.createElement("span")
-            var spanForButtonIcon = document.createElement("span")
-
-            buyButton.appendChild(spanForButtonIcon);
-            buyButton.appendChild(spanForButtonText);
-
-            spanForButtonIcon.innerHTML = '<i class="fas fa-cart-arrow-down own-fa-cart-arrow-down"></i>';
-            spanForButtonText.innerText = "Lägg till i kundvagnen"
-            buyButton.classList.add("shopping-button", "btn-primary")
-
-            buyButton.data = listOfProducts[i]
-            buyButton.addEventListener("click", function() {
-                addToCart(this.data)
-           })
-            container.appendChild(buyButton)
+            
         }
        
         main.appendChild(container)  
@@ -70,12 +55,30 @@ function createPhoneCard(selectedPhone) {
     phoneDescription.innerText = selectedPhone.description
     phoneImage.setAttribute('src',"./assets/" + selectedPhone.image)
     phonePrice.innerText = selectedPhone.price+" "+"kr";
+
+    var buyButton = document.createElement("button")
+            var spanForButtonText = document.createElement("span")
+            var spanForButtonIcon = document.createElement("span")
+
+            buyButton.appendChild(spanForButtonIcon);
+            buyButton.appendChild(spanForButtonText);
+
+            spanForButtonIcon.innerHTML = '<i class="fas fa-cart-arrow-down own-fa-cart-arrow-down"></i>';
+            spanForButtonText.innerText = "Lägg till i kundvagnen"
+            buyButton.classList.add("shopping-button", "btn-primary")
+
+            buyButton.data = selectedPhone
+            buyButton.addEventListener("click", function() {
+                addToCart(this.data)
+           })
+            
   
     phoneImage.className="pI"
     infoList.appendChild(phoneName)
     infoList.appendChild(phoneDescription)
     infoList.appendChild(phoneImage)
     infoList.appendChild(phonePrice)
+    infoList.appendChild(buyButton)
     phoneCard.appendChild(infoList)
 
     return phoneCard;
@@ -149,7 +152,6 @@ function addToCart(product){
 
    storedNames.push(product1)
    localStorage.setItem("shoppingList", JSON.stringify(storedNames)); 
-   console.log(localStorage)
    document.getElementById("productCounter").innerText=storedNames.length
 }
 

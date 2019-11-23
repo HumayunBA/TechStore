@@ -122,9 +122,6 @@ function setLogIn(){
    login();
   })
    
-
-
- //form.appendChild(img)
  form.appendChild(h1)
  form.appendChild(label1)
  form.appendChild(input1)
@@ -156,7 +153,6 @@ function login() {
 	for(var i = 0; i < storedUsers.length; i++) {
 
 		if(username == storedUsers[i].username && password == storedUsers[i].password) {
-      console.log(username + ' is logged in!!!')
       var newUser={username: username,
         password: password, 
         items: storedUsers[i].items
@@ -168,7 +164,7 @@ function login() {
     
     } else //if(i==storedUsers.length-1 )
      {
-             console.log('incorrect username or password')
+             alert('incorrect username or password')
 		}
   }
   
@@ -193,7 +189,7 @@ function registerUser() {
   var newUser = {
     username: registerUsername,
     password: registerPassword,
-    items: [] //JSON.parse(localStorage.getItem('shoppingList'))
+    items: [] 
   }
   var i=0
   for(i ; i < storedUsers.length; i++) {
@@ -207,7 +203,6 @@ function registerUser() {
     localStorage.setItem('inLoggedUser',JSON.stringify(newUser))
     localStorage.setItem('storedUsers', JSON.stringify(storedUsers)); 
     window.location.reload(); 
-    console.log(localStorage.inLoggedUser)
   }
 }
 
@@ -238,8 +233,7 @@ function account(){
     var inLoggedUser=JSON.parse(localStorage.getItem("inLoggedUser"))
     inLoggedUser=JSON.parse(localStorage.getItem('inLoggedUser'))
     purchases= inLoggedUser.items
-    console.log(purchases)
-    console.log(purchases[1])
+  
    var orderList= document.createElement("div")
     for(var j=0;j<purchases.length;j++){
       var orderContainer= document.createElement("div")

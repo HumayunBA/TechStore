@@ -26,7 +26,6 @@ function setHeader(){
     }
    else logInPage.className='fas fa-sign-in-alt '
 
-    //shoppingCart.id=shoppingCart;
     logInPage.addEventListener('click', function(e) {
         window.location.href = './logInPage.html'
     }, false);
@@ -120,7 +119,6 @@ function bodyCreate(){
              totalSum+=Number(selectedPhone.price)
            }
 
-    console.log(totalSum)
     var totalPrice=document.createElement("div") 
     totalPrice.innerText="Totalt pris: "+totalSum+" "+"kr";
     
@@ -146,7 +144,6 @@ function bodyCreate(){
 
 function deleteElemet(product){
     var storedNames = JSON.parse(localStorage.getItem("shoppingList"))
-    console.log(localStorage)
     storedNames.splice(product, 1)
     for(var i=0;i<storedNames.length;i++)
     {
@@ -179,11 +176,8 @@ if(!inLoggedUser){
 
             storedUsers[i].items=inLoggedUser.items
             localStorage.setItem("storedUsers", JSON.stringify(storedUsers)); 
-
-           // console.log( storedUsers[i].items)
         }
     } }
-    console.log()
     first();
 
     setTimeout(() => {
