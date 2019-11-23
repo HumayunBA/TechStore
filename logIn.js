@@ -165,6 +165,7 @@ function login() {
     } else //if(i==storedUsers.length-1 )
      {
              alert('incorrect username or password')
+             break;
 		}
   }
   
