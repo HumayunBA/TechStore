@@ -63,7 +63,7 @@ a:hover
 }
 
 #phones{
-  border: 1px solid black;
+  border: 1px solid #212121;
   margin: 25px;
   display: -ms-flexbox;
   display: -webkit-box;
@@ -77,11 +77,11 @@ a:hover
   color: #212121
 }
 
-main-pageProduct-container {
+
+.main-pageProduct-container {
   margin-bottom: 10px;
   font-weight: bold;   
 }
-
 .card{
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -91,7 +91,6 @@ main-pageProduct-container {
   margin: 5px;
   border: 3px solid lightskyblue;
   border-radius: 10%
-  
   
 }
 h2{

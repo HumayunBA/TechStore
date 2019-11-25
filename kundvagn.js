@@ -86,7 +86,7 @@ function createPhoneCard(selectedPhone) {
         deleteElemet(this.data)
     })
 
-    phoneImage.className="pI"
+    phoneImage.className="pI2"
    
     infoList.appendChild(phoneImage)
     infoList.appendChild(phoneName)

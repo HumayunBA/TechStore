@@ -9,6 +9,11 @@ body {
     text-decoration: none;
 }
 .pI{
+    height: 350px;
+    object-fit: cover;
+}
+
+.pI2{
     height: 250px;
     object-fit: cover;
 }
@@ -58,9 +63,9 @@ h1{
 main{
     width: 100%;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 165px;
     font-weight: bold;
-    margin-top: 120px;
+    
 }
 
 #mainBody{
@@ -78,9 +83,12 @@ margin-bottom: 80;
 
 .main-pageProduct-container {
     text-align: center;
-    margin-bottom: 10px;
     font-weight: bold;   
+    height: 85vh
 }
+
+
+
 
 .card{
     background-repeat: no-repeat;
