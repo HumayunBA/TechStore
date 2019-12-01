@@ -63,7 +63,7 @@ h1{
 main{
     width: 100%;
     text-align: center;
-    margin-top: 165px;
+    margin-top: 15vh;
     font-weight: bold;
     
 }
@@ -84,9 +84,9 @@ margin-bottom: 80;
 .main-pageProduct-container {
     text-align: center;
     font-weight: bold;   
-    height: 85vh
+    height: 85vh;
+    margin-bottom: 10vh;
 }
-
 
 
 
